@@ -1,0 +1,19 @@
+.weather-container {
+    flex: 1;
+    max-width: 160px;
+    padding: 1rem;
+    font-weight: lighter;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    box-shadow: 0 0 4px -3px rgba(0, 0, 0, 0.3);
+}
+
+.clouds {
+    background:
+        linear-gradient(to bottom,
+            rgba(128, 128, 128, 0.2) 0%,
+            rgba(64, 64, 64, 0.5) 75%,
+            rgba(0, 0, 0, 1) 100%),
+        url('../assets/storm.jpg');
+    background-size: cover;
+}
