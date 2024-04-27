@@ -40,7 +40,9 @@ describe('Weather Application tests', () => {
 		userEvent.click(button);
 
 		await waitFor(() => expect(screen.getAllByText(/Melbourne/i).length).toEqual(5))
-		expect(screen.getByText(/Melbourne, -37.8141705, 144.9655616/i)).toBeInTheDocument()
+		const cityInfoElement = document.getElementsByClassName('search-result')[3];
+		expect(cityInfoElement).toBeInTheDocument();
+		expect(cityInfoElement.textContent).toMatch(/Melbourne-37.8141705, 144.9655616/i);
 	});
 
 	it('add search result to my weather list', async () => {
@@ -61,5 +63,7 @@ describe('Weather Application tests', () => {
 
 		expect(within(screen.getByTestId('my-weather-list')).getByText(/Melbourne/i)).
 			toBeInTheDocument()
+
+		expect(screen.queryByTestId('search-results')).not.toBeInTheDocument()
 	});
 })
